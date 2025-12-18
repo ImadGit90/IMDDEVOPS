@@ -17,9 +17,9 @@ stages:
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
             backendServiceArm: 'IMDSERVICE'
-            backendAzureRmResourceGroupName: 'strg_rg'
-            backendAzureRmStorageAccountName: 'strg1210'
-            backendAzureRmContainerName: 'iacfile1210'
+            backendAzureRmResourceGroupName: 'IMRG1'
+            backendAzureRmStorageAccountName: 'imstg'
+            backendAzureRmContainerName: 'imctr'
             backendAzureRmKey: 'terraform.tfstate'
 
         - task: TerraformTask@5
