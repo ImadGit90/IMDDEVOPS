@@ -1,28 +1,30 @@
-
 trigger: none
 pool: IMDDEVOPSPOOL
 stages:
   - stage: terraformInit
-    displayName: Init
+    displayName: INIT
     jobs:
-      - job: terrafominit
-        displayName: firstjb
+      - job: terraformInit
+        displayName: TINIT
         steps:
         - task: TerraformInstaller@1
           inputs:
             terraformVersion: 'latest'
+
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
             command: 'init'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
             backendServiceArm: 'IMDSERVICE'
-            backendAzureRmStorageAccountName: 'imstg'
+            backendAzureRmResourceGroupName: 'arsh_rg'
+            backendAzureRmStorageAccountName: 'arshstrg1210'
             backendAzureRmContainerName: 'imctr'
-            backendAzureRmKey: 'terraform.tf'
+            backendAzureRmKey: 'terraform.tfstate'
+
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
             command: 'plan'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
+            workingDirectory: '$(System.DefaultWorkingDirectory)'
             environmentServiceNameAzureRM: 'IMDSERVICE'
