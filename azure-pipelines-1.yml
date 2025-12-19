@@ -15,7 +15,7 @@ stages:
           inputs:
             provider: 'azurerm'
             command: 'init'
-            workingDirectory: '$(System.DefaultWorkingDirectory)'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
             backendServiceArm: 'IMDSERVICE'
             backendAzureRmResourceGroupName: 'arsh_rg'
             backendAzureRmStorageAccountName: 'arshstrg1210'
@@ -26,5 +26,5 @@ stages:
           inputs:
             provider: 'azurerm'
             command: 'plan'
-            workingDirectory: '$(System.DefaultWorkingDirectory)'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
             environmentServiceNameAzureRM: 'IMDSERVICE'
