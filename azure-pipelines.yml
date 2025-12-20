@@ -1,5 +1,5 @@
 trigger: none
-pool: IMDDEVOPSPOOL
+pool: MYAGENTDEV
 stages:
   - stage: terraforminit
     displayName: INIT
