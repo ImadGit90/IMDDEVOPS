@@ -25,6 +25,6 @@ stages:
         - task: TerraformTask@5
           inputs:
             provider: 'azurerm'
-            command: 'plan'
+            command: 'apply'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Dev'
             environmentServiceNameAzureRM: 'ADOSERV'
